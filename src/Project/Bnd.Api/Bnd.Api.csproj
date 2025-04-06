@@ -1,0 +1,172 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+		<ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="App_Plugins\Skybrud.Umbraco.Redirects\**" />
+      <Content Remove="App_Plugins\Skybrud.Umbraco.Redirects\**" />
+      <EmbeddedResource Remove="App_Plugins\Skybrud.Umbraco.Redirects\**" />
+      <None Remove="App_Plugins\Skybrud.Umbraco.Redirects\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="App_Plugins\UrlTracker\lang\en-US.user.xml" />
+      <Content Include="App_Plugins\UrlTracker\lang\nl-NL.user.xml" />
+      <Content Include="App_Plugins\UrlTracker\res\css\urltracker-grid.min.css" />
+      <Content Include="App_Plugins\UrlTracker\res\css\urltracker.css" />
+      <Content Include="App_Plugins\UrlTracker\res\img\asc-hover.png" />
+      <Content Include="App_Plugins\UrlTracker\res\img\asc.png" />
+      <Content Include="App_Plugins\UrlTracker\res\img\cross.png" />
+      <Content Include="App_Plugins\UrlTracker\res\img\desc-hover.png" />
+      <Content Include="App_Plugins\UrlTracker\res\img\desc.png" />
+      <Content Include="App_Plugins\UrlTracker\res\img\edit.png" />
+      <Content Include="App_Plugins\UrlTracker\res\img\glyphicons-halflings-white.png" />
+      <Content Include="App_Plugins\UrlTracker\res\img\glyphicons-halflings.png" />
+      <Content Include="App_Plugins\UrlTracker\res\img\info.png" />
+      <Content Include="App_Plugins\UrlTracker\res\img\trash.png" />
+      <Content Include="App_Plugins\UrlTracker\res\img\urltracker-icon.png" />
+      <Content Include="App_Plugins\UrlTracker\res\img\urltracker.png" />
+      <Content Include="App_Plugins\UrlTracker\Views\UrlTrackerDetails.html" />
+      <Content Include="App_Plugins\UrlTracker\Views\UrlTrackerImportExportOverlay.html" />
+      <Content Include="App_Plugins\UrlTracker\Views\UrlTrackerManager.html" />
+      <Content Include="App_Plugins\uSync\addons.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="App_Plugins\uSync\backoffice\usync\dashboard.html">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="App_Plugins\uSync\boot\nonodes.css">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="App_Plugins\uSync\boot\TurbineBlades.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="App_Plugins\uSync\boot\usynclogo.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="App_Plugins\uSync\changedialog.html">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="App_Plugins\uSync\components\usync.progressview.html">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="App_Plugins\uSync\components\usync.reportview.html">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="App_Plugins\uSync\config\appsettings-usync-schema.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="App_Plugins\uSync\itemdialog.html">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="App_Plugins\uSync\Lang\en-us.xml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="App_Plugins\uSync\Lang\nl-nl.xml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="App_Plugins\uSync\Lang\sv-SE.xml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="App_Plugins\uSync\settings\default.html">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="App_Plugins\uSync\settings\expansion.html">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="App_Plugins\uSync\settings\settings.html">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="App_Plugins\uSync\settings\settings.overlay.html" />
+      <Content Include="App_Plugins\uSync\usync.9.4.0.min.css">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="GeographicLib.NET" Version="2.3.1" />
+        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+        <PackageReference Include="NWebsec.AspNetCore.Middleware" Version="3.0.0" />
+        <PackageReference Include="System.Security.Cryptography.Pkcs" Version="6.0.4" />
+        <PackageReference Include="Umbraco.Cms" Version="10.8.7" />
+        <PackageReference Include="Umbraco.Cms.Core" Version="10.8.7" />
+        <PackageReference Include="Umbraco.Cms.Infrastructure" Version="10.8.7" />
+        <PackageReference Include="Umbraco.Cms.Web.Website" Version="10.8.7" />
+        <PackageReference Include="Umbraco.StorageProviders.AzureBlob" Version="10.0.0" />
+        <PackageReference Include="UrlTracker" Version="10.0.0" />
+        <PackageReference Include="uSync" Version="9.4.0" />
+    </ItemGroup>
+
+    <!-- Force windows to use ICU. Otherwise Windows 10 2019H1+ will do it, but older windows 10 and most if not all winodws servers will run NLS -->
+    <ItemGroup Condition="'$(OS)' == 'Windows_NT'">
+        <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
+        <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Umbraco.Cms.Web.Common" Version="10.8.7" />
+        <ProjectReference Include="..\..\Core\Bnd.Core\Bnd.Core.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Smidge\Cache\" />
+      <Folder Include="wwwroot\media\" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="App_Plugins\UrlTracker\package.manifest" />
+      <None Include="App_Plugins\UrlTracker\res\img\import-export-icon.svg" />
+      <None Include="App_Plugins\UrlTracker\res\js\bootstrap.js" />
+      <None Include="App_Plugins\UrlTracker\res\js\bootstrap.min.js" />
+      <None Include="App_Plugins\UrlTracker\res\js\installer.js" />
+      <None Include="App_Plugins\UrlTracker\res\js\jquery-1.11.2.min.js" />
+      <None Include="App_Plugins\UrlTracker\res\js\jquery-migrate-1.2.1.min.js" />
+      <None Include="App_Plugins\UrlTracker\res\js\jquery.validate.additional-methods.js" />
+      <None Include="App_Plugins\UrlTracker\res\js\jquery.validate.additional-methods.min.js" />
+      <None Include="App_Plugins\UrlTracker\res\js\jquery.validate.js" />
+      <None Include="App_Plugins\UrlTracker\res\js\jquery.validate.min.js" />
+      <None Include="App_Plugins\UrlTracker\res\js\main.js" />
+      <None Include="App_Plugins\UrlTracker\res\js\urltracker.js" />
+      <None Include="App_Plugins\UrlTracker\res\urltracker-redirects-import.csv" />
+      <None Include="App_Plugins\UrlTracker\Scripts\Overlays\UrlTracker.ImportExportOverlayController.js" />
+      <None Include="App_Plugins\UrlTracker\Scripts\UrlTracker.DetailsController.js" />
+      <None Include="App_Plugins\UrlTracker\Scripts\UrlTracker.OverviewController.js" />
+      <None Include="App_Plugins\UrlTracker\Scripts\UrlTrackerEntryService.js" />
+		<None Include="App_Plugins\uSync\addons.txt" />
+		<None Include="App_Plugins\uSync\backoffice\usync\dashboard.html" />
+		<None Include="App_Plugins\uSync\boot\nonodes.css" />
+		<None Include="App_Plugins\uSync\boot\TurbineBlades.jpg" />
+		<None Include="App_Plugins\uSync\boot\usynclogo.png" />
+		<None Include="App_Plugins\uSync\changedialog.html" />
+		<None Include="App_Plugins\uSync\components\usync.progressview.html" />
+		<None Include="App_Plugins\uSync\components\usync.reportview.html" />
+		<None Include="App_Plugins\uSync\config\appsettings-usync-schema.json" />
+		<None Include="App_Plugins\uSync\itemdialog.html" />
+		<None Include="App_Plugins\uSync\Lang\en-us.xml" />
+		<None Include="App_Plugins\uSync\Lang\nl-nl.xml" />
+		<None Include="App_Plugins\uSync\Lang\sv-SE.xml" />
+		<None Include="App_Plugins\uSync\settings\default.html" />
+		<None Include="App_Plugins\uSync\settings\expansion.html" />
+		<None Include="App_Plugins\uSync\settings\settings.html" />
+		<None Include="App_Plugins\uSync\settings\settings.overlay.html" />
+		<None Include="App_Plugins\uSync\usync.9.4.0.min.css" />
+
+    </ItemGroup>
+
+
+
+    <PropertyGroup>
+        <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+		<GenerateRuntimeConfigDevFile>true</GenerateRuntimeConfigDevFile>
+    </PropertyGroup>
+
+    <!-- Set this to true if ModelsBuilder mode is not InMemoryAuto-->
+    <PropertyGroup>
+        <RazorCompileOnBuild>false</RazorCompileOnBuild>
+        <RazorCompileOnPublish>false</RazorCompileOnPublish>
+        <UserSecretsId>e72577fa-5a88-49af-8928-3745b56215e6</UserSecretsId>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <DockerfileContext>..\..</DockerfileContext>
+    </PropertyGroup>
+
+</Project>

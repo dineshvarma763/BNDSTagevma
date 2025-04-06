@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="NewFolder\**" />
+    <Compile Remove="umbraco\**" />
+    <Compile Remove="wwwroot\**" />
+    <EmbeddedResource Remove="NewFolder\**" />
+    <EmbeddedResource Remove="umbraco\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="NewFolder\**" />
+    <None Remove="umbraco\**" />
+    <None Remove="wwwroot\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="GeographicLib.NET" Version="2.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.1.38" />
+    <PackageReference Include="Umbraco.Cms" Version="10.8.7" />
+    <PackageReference Include="Umbraco.Cms.Core" Version="10.8.7" />
+    <PackageReference Include="Umbraco.Cms.Infrastructure" Version="10.8.7" />
+    <PackageReference Include="Umbraco.Cms.Web.Common" Version="10.8.7" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="10.8.7" />
+    <PackageReference Include="UrlTracker" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Models\Bnd.DTO\Bnd.DTO.csproj" />
+    <ProjectReference Include="..\..\Models\Bnd.Models\Bnd.Models.csproj" />
+  </ItemGroup>
+
+</Project>

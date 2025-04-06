@@ -1,0 +1,7 @@
+Please do the following first before running the scripts:
+1. Navigate to the certificates folder
+2. Unzip the certificate into the certificates folder
+
+To Install
+1. Make sure you have the API and the FE repositories
+2. Make sure you configure the project path in script 2
